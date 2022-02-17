@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import controller as cnt
- 
+
 
 time.sleep(2.0)
 
@@ -33,7 +33,7 @@ with mp_hand.Hands(min_detection_confidence=0.5,
                     lmList.append([id,cx,cy])
                 mp_draw.draw_landmarks(image, hand_landmark, mp_hand.HAND_CONNECTIONS)
         fingers=[]
-        if len(lmList)!=0:
+        if lmList:
             if lmList[tipIds[0]][1] > lmList[tipIds[0]-1][1]:
                 fingers.append(1)
             else:
